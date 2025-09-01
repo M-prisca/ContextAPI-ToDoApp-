@@ -28,22 +28,19 @@ const TodoItem = ({ todo }) => {
           </span>
         )}
       </td>
-      <td className="px-4 py-2 flex gap-2">
-        <button
-          onClick={handleEdit}
-          className="px-2 py-1 bg-yellow-400 rounded"
-        >
+      <td className="px-4 py-2 flex justify-end gap-2">
+        <button onClick={handleEdit} className="px-2 py-1 bg-gray-400 rounded">
           {isEditing ? "Save" : "Edit"}
         </button>
         <button
           onClick={() => toggleTodo(todo.id)}
-          className="px-2 py-1 bg-green-500 text-white rounded"
+          className="px-2 py-1 bg-gray-500 text-white rounded"
         >
           {todo.completed ? "Undo" : "Complete"}
         </button>
         <button
           onClick={() => removeTodo(todo.id)}
-          className="px-2 py-1 bg-red-500 text-white rounded"
+          className="px-2 py-1 bg-gray-600 text-white rounded"
         >
           Delete
         </button>

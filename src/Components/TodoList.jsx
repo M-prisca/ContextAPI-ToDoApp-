@@ -6,11 +6,11 @@ const TodoList = () => {
   const { todos } = useTodos();
 
   return (
-    <table className="w-full border-collapse border">
+    <table className="w-full border-collapse border  ">
       <thead>
-        <tr className="bg-gray-200">
+        <tr className="bg-gray-200 ">
           <th className="px-4 py-2 text-left">Task</th>
-          <th className="px-4 py-2 text-left">Actions</th>
+          <th className="px-4 py-2 text-right">Actions</th>
         </tr>
       </thead>
       <tbody>
