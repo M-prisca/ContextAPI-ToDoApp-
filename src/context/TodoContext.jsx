@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 
 const TodoContext = createContext();
 const initialState = [];
@@ -29,4 +29,21 @@ function todoReducer(state, action) {
   }
 }
 
-export default TodoContext;
+export const TodoProvider = ({ children }) => {
+  const [todos, dispatch] = useReducer(todoReducer, initialState);
+
+  const addTodo = (text) => dispatch({ type: "ADD", payload: text });
+  const editTodo = (id, text) =>
+    dispatch({ type: "EDIT", payload: { id, text } });
+  const toggleTodo = (id) => dispatch({ type: "TOGGLE", payload: id });
+  const removeTodo = (id) => dispatch({ type: "REMOvE", payload: id });
+};
+
+return;
+<TodoContext.Provider
+  value={{ todos, addTodo, editTodo, toggleTodo, removeTodo }}
+>
+  {children}
+</TodoContext.Provider>;
+
+export const useTodos = () => useContext(TodoContext);
